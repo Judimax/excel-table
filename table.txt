@@ -1,0 +1,8 @@
+name,age,pet,whereBorn,faveAuthor
+Alex,59,squirrels,Valentine,the Bible
+Joseph,37,dogs,Buffalo,Dan Brown
+Kathy,26,hawks,Cheyenne,H is for hawk
+Kristine,39,dogs,Lincoln,Wendell Barry
+Sally,79,cats,Lincoln,"Danielle Steele,E. L. James"
+Steffanie,26,iguanas,Buffalo,Danielle Steele
+Zoyla,59,rats,Moscow,TolstoyTupac,59,cats,Valentine,"Tolkien,DawkinsKathy",49,dogs,Greeley,"C. S. Lewis,J.D.Salinger"

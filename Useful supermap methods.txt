@@ -1,0 +1,143 @@
+    def getValues(self):
+	"""This method gets all the values and sorts them 
+	    returns them"""
+        listValue = []
+        listValue.append(self.headptr.value)
+        first_one = self.headptr.next
+        listValue.append(first_one.value)
+        
+        while first_one.next != None:
+            first_one = first_one.next
+            listValue.append(first_one.value)
+        return quicksort(listValue,0,len(listValue)-1)
+
+   def getKey(self,value):
+        """This method takes a given value and returns all the keys that are associated
+            with that given value"""
+
+        listKey = []
+        key_one= self.headptr
+        while key_one.next != None:
+            if key_one.value == value:
+                listKey.append(key_one.key)
+            key_one = key_one.next
+        if listKey == []:
+            return None
+        else:  
+            return listKey
+
+    def inValues(self,value):
+        """This method goes through the link list and returns true if the value exist, false
+            if the value is not associated with any Key, and none if value does not exist"""
+
+        value_one = self.headptr
+
+        while value_one != None:
+            if value_one.value != value:
+                value_one = value_one.next
+            elif value_one.value == value:
+                if value_one.key != None:
+                    return True
+                else:
+                    return False
+        else:
+            return ("Value does not exist")
+
+    def count(self,types, target,partial = False, case_sensensitive= False):
+        ''' for professor, dont you need to know if you are working with the
+            key or the value '''
+        """This method first checks if you are counting for the key or the value, Once decided
+            it counts how many times it counts it and returns that count"""
+        c=0
+        odd_one = self.headptr 
+        runner = self.headptr
+        if types == "key":
+            while runner != None:
+                if runner.key == target:
+                    c+=1
+                runner = runner.next
+        if types == "value":
+            while runner != None:
+                if runner.value == target:
+                    c+=1
+                runner= runner.next
+
+
+            
+        """if self.z == 1: #Fix me why count does not add second same value when headptr is removed. This is temp. alternative
+            return c +1
+        if types == "key":
+            if odd_one == self.headptr and odd_one.key == target:
+                return c + 1
+        if types == "value":
+            if odd_one == self.headptr and odd_one.value == target:
+                return c + 1"""
+        return c
+
+
+Additional delete code if prev pointer is needed
+        """while self.tailptr.prev != None:
+
+
+            if a == 1:
+                pass
+            elif self.tailptr.key == key and c == 0:
+
+                next_aux = self.tailptr.next
+                prev_aux = self.tailptr.prev
+
+                self.tailptr = self.tailptr.prev
+                self.tailptr.next = next_aux
+                a =1
+                
+   
+            elif self.tailptr.key == key and c >0:
+
+                next_aux = self.tailptr.next
+                prev_aux = self.tailptr.prev
+
+                self.tailptr= self.tailptr.prev
+                self.tailptr.prev = next_aux
+
+                self.tailptr =self.tailptr.next
+                self.tailptr.prev = prev_aux
+                a=1
+
+
+            c += 1
+            self.tailptr = self.tailptr.prev"""
+
+    def isSorted(self): #FIX me, method can't recognize if keys are sorted
+        """This method sees if the entire List ADT is sorted by the keys in
+            ascending order"""
+        
+
+        those_Keys = []
+        runner= self.headptr
+        while runner != None:
+            those_Keys.append(runner.key)
+            runner = runner.next
+        for i in range(len(those_Keys)):
+            if those_Keys[i-1] > those_Keys[i]:
+                return 9  
+        return 3
+
+    def getKeys(self): #Find out why memory does not like adding itself to a list
+        """This method gets all the keys in the linked list and sorts them according to
+            the keys and returns that sorted list"""
+
+        those_Keys = []
+        runner = self.headptr
+
+        while runner != None:
+            those_Keys.append(runner.key)
+            runner = runner.next
+
+        return quicksort(those_Keys, 0 ,len(those_Keys)-1)
+
+    def _reset(self): 
+        """Take self.headptr if it was ever used instead of runner and resets it
+            to the true head"""
+
+        self.headptr = self.z
+        return self.z
